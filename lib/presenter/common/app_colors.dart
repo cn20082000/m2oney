@@ -2,16 +2,16 @@ import 'dart:ui';
 
 class AppColors {
   // dark
-  static const dark25 = Color(0xFF7A7E80);
-  static const dark50 = Color(0xFF464A4D);
+  static const dark25 = Color(0xFF292B2D);
+  static const dark50 = Color(0xFF212325);
   static const dark75 = Color(0xFF161719);
   static const dark100 = Color(0xFF0D0E0F);
 
   // light
-  static const light20 = Color(0xFFE3E5E5);
-  static const light40 = Color(0xFFF2F4F5);
-  static const light60 = Color(0xFFF7F9FA);
-  static const light80 = Color(0xFFFBFBFB);
+  static const light20 = Color(0xFF91919F);
+  static const light40 = Color(0xFFE3E5E5);
+  static const light60 = Color(0xFFF1F1FA);
+  static const light80 = Color(0xFFFCFCFC);
   static const light100 = Color(0xFFFFFFFF);
   
   // violet
