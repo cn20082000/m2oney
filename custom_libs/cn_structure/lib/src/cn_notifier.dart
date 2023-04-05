@@ -16,4 +16,8 @@ abstract class CnNotifier with ChangeNotifier {
       itr.current.notify = notifyListeners;
     }
   }
+
+  void initState() {}
+
+  void didChangeDependencies() {}
 }

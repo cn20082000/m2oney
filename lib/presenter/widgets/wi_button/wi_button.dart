@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
 import '../../common/app_colors.dart';
@@ -80,9 +81,9 @@ class WiButton extends StatelessWidget {
           onTap: onPressed,
           borderRadius: borderRadius,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 16,
-              horizontal: 48,
+            padding: EdgeInsets.symmetric(
+              vertical: 16.h,
+              horizontal: 48.w,
             ),
             child: Center(
               child: Row(

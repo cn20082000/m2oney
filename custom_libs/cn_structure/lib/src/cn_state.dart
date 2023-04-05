@@ -12,6 +12,18 @@ abstract class CnState<T extends StatefulWidget, N extends CnNotifier>
   }
 
   @override
+  void initState() {
+    super.initState();
+    notifier.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    notifier.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => notifier,
