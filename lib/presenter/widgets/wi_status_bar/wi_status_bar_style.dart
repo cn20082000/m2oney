@@ -1,5 +1,9 @@
 import 'dart:io';
-import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import '../../common/app_colors.dart';
 
 enum WiStatusBarStyle {
   light,
@@ -30,6 +34,28 @@ enum WiStatusBarStyle {
         default:
           break;
       }
+    }
+    return null;
+  }
+
+  Color? get titleColor {
+    switch (this) {
+      case WiStatusBarStyle.light:
+        return AppColors.dark50;
+      case WiStatusBarStyle.dark:
+        return AppColors.light100;
+      default:
+        return null;
+    }
+  }
+
+  SystemUiOverlayStyle? get systemUiOverlayStyle {
+    if (this == WiStatusBarStyle.light || this == WiStatusBarStyle.dark) {
+      return SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: statusBarBrightness,
+        statusBarIconBrightness: statusBarIconBrightness,
+      );
     }
     return null;
   }

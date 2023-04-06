@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
+import '../../../../resources/resources.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/app_typos.dart';
+import '../../../router/routers.dart';
 import '../../../widgets/wi_button/wi_button.dart';
 import '../../../widgets/wi_indicator/wi_page_indicator.dart';
 import '../../../widgets/wi_status_bar/wi_status_bar.dart';
@@ -55,7 +57,9 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
                 margin: EdgeInsets.symmetric(horizontal: 16.w),
                 borderRadius: BorderRadius.circular(16.r),
                 content: "Sign Up",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(Routers.signUp);
+                },
               ),
               SizedBox(height: 16.h),
               WiButton.secondary(
@@ -73,20 +77,24 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
   }
 
   Widget _buildPage(int index) {
+    String image = "";
     String title = "";
     String content = "";
 
     switch (index) {
       case 0:
+        image = Images.imgIntro1;
         title = "Gain total control of money";
         content = "Become your own money manager and make every cent count";
         break;
       case 1:
+        image = Images.imgIntro2;
         title = "Know where your money goes";
         content =
             "Track your transaction easily, with categories and financial report";
         break;
       case 2:
+        image = Images.imgIntro3;
         title = "Planning ahead";
         content = "Setup your budget for each category so you in control";
         break;
@@ -101,8 +109,9 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
               left: 32.w,
               right: 32.w,
             ),
-            child: Container(
-              color: Colors.red,
+            child: Image.asset(
+              image,
+              fit: BoxFit.contain,
             ),
           ),
         ),
