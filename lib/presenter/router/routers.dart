@@ -7,8 +7,8 @@ class Routers {
   static const intro = "intro";
   static const signUp = "sign_up";
 
-  static Map<String, Widget Function(BuildContext)> get map => {
-    intro: (_) => const IntroView(),
-    signUp: (_) => const SignUpView(),
+  static Map<String, Widget Function()> get map => {
+    intro: () => const IntroView(),
+    signUp: () => const SignUpView(),
   };
 }

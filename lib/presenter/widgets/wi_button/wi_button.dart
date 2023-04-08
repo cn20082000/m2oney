@@ -10,6 +10,7 @@ class WiButton extends StatelessWidget {
   final Color backgroundColor;
   final Color contentColor;
   final BorderRadius? borderRadius;
+  final BoxBorder? boxBorder;
   final String content;
   final void Function()? onPressed;
 
@@ -19,7 +20,9 @@ class WiButton extends StatelessWidget {
     this.backgroundColor = AppColors.violet100,
     this.contentColor = AppColors.light80,
     required this.content,
-    this.onPressed, this.borderRadius,
+    this.onPressed,
+    this.borderRadius,
+    this.boxBorder,
   }) : super(key: key);
 
   factory WiButton.primary({
@@ -32,7 +35,7 @@ class WiButton extends StatelessWidget {
         margin: margin,
         backgroundColor: AppColors.violet100,
         contentColor: AppColors.light80,
-        borderRadius: borderRadius,
+        borderRadius: BorderRadius.circular(16.r),
         content: content,
         onPressed: onPressed,
       );
@@ -47,7 +50,7 @@ class WiButton extends StatelessWidget {
         margin: margin,
         backgroundColor: AppColors.violet20,
         contentColor: AppColors.violet100,
-        borderRadius: borderRadius,
+        borderRadius: BorderRadius.circular(16.r),
         content: content,
         onPressed: onPressed,
       );
@@ -62,7 +65,11 @@ class WiButton extends StatelessWidget {
         margin: margin,
         backgroundColor: Colors.transparent,
         contentColor: AppColors.dark50,
-        borderRadius: borderRadius,
+        borderRadius: BorderRadius.circular(16.r),
+        boxBorder: Border.all(
+          color: AppColors.light60,
+          width: 1.r,
+        ),
         content: content,
         onPressed: onPressed,
       );
@@ -74,6 +81,7 @@ class WiButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: borderRadius,
+        border: boxBorder,
       ),
       child: Material(
         color: Colors.transparent,

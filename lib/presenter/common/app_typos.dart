@@ -40,4 +40,5 @@ class AppTypos {
     fontWeight: FontWeight.w500,
     fontSize: 12.sp,
   );
+  static final base = GoogleFonts.inter();
 }

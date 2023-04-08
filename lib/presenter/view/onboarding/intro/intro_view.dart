@@ -32,47 +32,66 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                child: PageView(
-                  controller: notifier.pageCtrl,
-                  children: [
-                    _buildPage(0),
-                    _buildPage(1),
-                    _buildPage(2),
-                  ],
-                ),
+                child: _buildPageView(),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 28.h,
-                  horizontal: 32.w,
-                ),
-                child: Center(
-                  child: WiPageIndicator(
-                    controller: notifier.pageCtrl,
-                    length: 3,
-                  ),
-                ),
-              ),
-              WiButton.primary(
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
-                borderRadius: BorderRadius.circular(16.r),
-                content: "Sign Up",
-                onPressed: () {
-                  Navigator.of(context).pushNamed(Routers.signUp);
-                },
-              ),
-              SizedBox(height: 16.h),
-              WiButton.secondary(
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
-                borderRadius: BorderRadius.circular(16.r),
-                content: "Login",
-                onPressed: () {},
-              ),
-              SizedBox(height: 16.h),
+              _buildIndicator(),
+              _buildButtons(context),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildPageView() {
+    return PageView(
+      controller: notifier.pageCtrl,
+      children: [
+        _buildPage(0),
+        _buildPage(1),
+        _buildPage(2),
+      ],
+    );
+  }
+
+  Widget _buildIndicator() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: 28.h,
+        horizontal: 32.w,
+      ),
+      child: Center(
+        child: WiPageIndicator(
+          controller: notifier.pageCtrl,
+          length: 3,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButtons(BuildContext context) {
+    return Column(
+      children: [
+        Hero(
+          tag: "SignUpButton",
+          child: WiButton.primary(
+            margin: EdgeInsets.symmetric(horizontal: 16.w),
+            content: "Sign Up",
+            onPressed: () {
+              Navigator.of(context).pushNamed(Routers.signUp);
+            },
+          ),
+        ),
+        SizedBox(height: 16.h),
+        WiButton.secondary(
+          margin: EdgeInsets.symmetric(horizontal: 16.w),
+          content: "Login",
+          onPressed: () {
+            debugPrint("Tap: Login");
+          },
+        ),
+        SizedBox(height: 16.h),
+      ],
     );
   }
 
