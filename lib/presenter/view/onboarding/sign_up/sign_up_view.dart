@@ -2,10 +2,13 @@ import 'package:cn_structure/cn_structure.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
+import '../../../../resources/resources.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/app_typos.dart';
+import '../../../router/routers.dart';
 import '../../../widgets/wi_app_bar/wi_app_bar.dart';
 import '../../../widgets/wi_button/wi_button.dart';
 import '../../../widgets/wi_text_field/wi_text_field.dart';
@@ -56,11 +59,11 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
       child: Column(
         children: [
           WiTextField(
-            // focusNode: notifier.nameNode,
             autoFocus: true,
             hintText: "Name",
             keyboardType: TextInputType.name,
             textInputAction: TextInputAction.next,
+            textCapitalization: TextCapitalization.words,
             onSubmitted: (_) => notifier.emailNode.requestFocus(),
           ),
           SizedBox(height: 24.h),
@@ -123,9 +126,8 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
                   text: "Terms of Service and Privacy Policy",
                   style: AppTypos.regular3.withColor(AppColors.violet100),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      debugPrint("Tap: Terms of Service and Privacy Policy");
-                    },
+                    ..onTap = () =>
+                        debugPrint("Tap: Terms of Service and Privacy Policy"),
                 ),
               ],
             ),
@@ -147,9 +149,8 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
             tag: "SignUpButton",
             child: WiButton.primary(
               content: "Sign Up",
-              onPressed: () {
-                debugPrint("Tap: Sign Up");
-              },
+              onPressed: () =>
+                  Navigator.pushNamed(context, Routers.verification),
             ),
           ),
           SizedBox(height: 12.h),
@@ -163,10 +164,13 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
           ),
           SizedBox(height: 12.h),
           WiButton.ghost(
+            prefix: SvgPicture.asset(
+              Svgs.icGoogle,
+              height: 32.r,
+              width: 32.r,
+            ),
             content: "Sign Up with Google",
-            onPressed: () {
-              debugPrint("Tap: Sign Up with Google");
-            },
+            onPressed: () => debugPrint("Tap: Sign Up with Google"),
           ),
           SizedBox(height: 20.h),
           Text.rich(
@@ -183,9 +187,7 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
                     decoration: TextDecoration.underline,
                   ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      debugPrint("Tap: Login");
-                    },
+                    ..onTap = () => debugPrint("Tap: Login"),
                 ),
               ],
             ),

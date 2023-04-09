@@ -11,6 +11,7 @@ class WiButton extends StatelessWidget {
   final Color contentColor;
   final BorderRadius? borderRadius;
   final BoxBorder? boxBorder;
+  final Widget? prefix;
   final String content;
   final void Function()? onPressed;
 
@@ -23,11 +24,12 @@ class WiButton extends StatelessWidget {
     this.onPressed,
     this.borderRadius,
     this.boxBorder,
+    this.prefix,
   }) : super(key: key);
 
   factory WiButton.primary({
     EdgeInsetsGeometry? margin,
-    BorderRadius? borderRadius,
+    Widget? prefix,
     required String content,
     void Function()? onPressed,
   }) =>
@@ -36,13 +38,14 @@ class WiButton extends StatelessWidget {
         backgroundColor: AppColors.violet100,
         contentColor: AppColors.light80,
         borderRadius: BorderRadius.circular(16.r),
+        prefix: prefix,
         content: content,
         onPressed: onPressed,
       );
 
   factory WiButton.secondary({
     EdgeInsetsGeometry? margin,
-    BorderRadius? borderRadius,
+    Widget? prefix,
     required String content,
     void Function()? onPressed,
   }) =>
@@ -51,13 +54,14 @@ class WiButton extends StatelessWidget {
         backgroundColor: AppColors.violet20,
         contentColor: AppColors.violet100,
         borderRadius: BorderRadius.circular(16.r),
+        prefix: prefix,
         content: content,
         onPressed: onPressed,
       );
 
   factory WiButton.ghost({
     EdgeInsetsGeometry? margin,
-    BorderRadius? borderRadius,
+    Widget? prefix,
     required String content,
     void Function()? onPressed,
   }) =>
@@ -70,6 +74,7 @@ class WiButton extends StatelessWidget {
           color: AppColors.light60,
           width: 1.r,
         ),
+        prefix: prefix,
         content: content,
         onPressed: onPressed,
       );
@@ -90,13 +95,15 @@ class WiButton extends StatelessWidget {
           borderRadius: borderRadius,
           child: Padding(
             padding: EdgeInsets.symmetric(
-              vertical: 16.h,
+              vertical: prefix != null ? 12.h : 16.h,
               horizontal: 48.w,
             ),
             child: Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  if (prefix != null) prefix!,
+                  if (prefix != null) SizedBox(width: 10.w),
                   Text(
                     content,
                     style: AppTypos.title3.withColor(

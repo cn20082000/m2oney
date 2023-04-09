@@ -40,7 +40,7 @@ class WiAppBar extends StatelessWidget implements PreferredSizeWidget {
       foregroundColor: statusBarStyle.titleColor,
       systemOverlayStyle: statusBarStyle.systemUiOverlayStyle,
       leading: InkWell(
-        onTap: () => Navigator.of(context).pop(),
+        onTap: () => Navigator.pop(context),
         borderRadius: BorderRadius.circular(1000.r),
         child: Center(
           child: SvgPicture.asset(

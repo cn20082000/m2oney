@@ -14,6 +14,7 @@ class WiTextField extends StatefulWidget {
   final void Function(String)? onSubmitted;
   final FocusNode? focusNode;
   final bool autoFocus;
+  final TextCapitalization textCapitalization;
 
   const WiTextField({
     Key? key,
@@ -24,6 +25,7 @@ class WiTextField extends StatefulWidget {
     this.onSubmitted,
     this.focusNode,
     this.autoFocus = false,
+    this.textCapitalization = TextCapitalization.none,
   }) : super(key: key);
 
   @override
@@ -32,11 +34,12 @@ class WiTextField extends StatefulWidget {
 
 class _WiTextFieldState extends State<WiTextField> {
   bool obscureText = false;
-  final _focusNode = FocusNode();
+  late FocusNode focusNode;
 
   @override
   void initState() {
     super.initState();
+    focusNode = widget.focusNode ?? FocusNode();
     obscureText = widget.obscureText;
   }
 
@@ -48,26 +51,10 @@ class _WiTextFieldState extends State<WiTextField> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GestureDetector(
-            onTapDown: (_) {
-              setState(() {
-                obscureText = false;
-              });
-            },
-            onLongPressDown: (_) {
-              setState(() {
-                obscureText = false;
-              });
-            },
-            onTapUp: (_) {
-              setState(() {
-                obscureText = true;
-              });
-            },
-            onLongPressUp: () {
-              setState(() {
-                obscureText = true;
-              });
-            },
+            onTapDown: (_) => setState(() => obscureText = false),
+            onLongPressDown: (_) => setState(() => obscureText = false),
+            onTapUp: (_) => setState(() => obscureText = true),
+            onLongPressUp: () => setState(() => obscureText = true),
             child: SvgPicture.asset(
               Svgs.icShowPassword,
               width: 32.r,
@@ -94,6 +81,7 @@ class _WiTextFieldState extends State<WiTextField> {
       focusNode: focusNode,
       onTapOutside: (_) => focusNode.unfocus(),
       autofocus: widget.autoFocus,
+      textCapitalization: widget.textCapitalization,
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: AppTypos.base.copyWith(
@@ -137,6 +125,4 @@ class _WiTextFieldState extends State<WiTextField> {
       ),
     );
   }
-
-  FocusNode get focusNode => widget.focusNode ?? _focusNode;
 }

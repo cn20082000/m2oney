@@ -1,11 +1,13 @@
 import 'package:cn_datetime_utils/cn_datetime_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'presenter/router/routers.dart';
 
-void main() {
+void main() async {
+  await preRun();
   runApp(ScreenUtilInit(
     designSize: const Size(375, 812),
     builder: (_, __) {
@@ -23,4 +25,12 @@ void main() {
       );
     },
   ));
+}
+
+Future<void> preRun() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 }

@@ -77,18 +77,14 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
           child: WiButton.primary(
             margin: EdgeInsets.symmetric(horizontal: 16.w),
             content: "Sign Up",
-            onPressed: () {
-              Navigator.of(context).pushNamed(Routers.signUp);
-            },
+            onPressed: () => Navigator.pushNamed(context, Routers.signUp),
           ),
         ),
         SizedBox(height: 16.h),
         WiButton.secondary(
           margin: EdgeInsets.symmetric(horizontal: 16.w),
           content: "Login",
-          onPressed: () {
-            debugPrint("Tap: Login");
-          },
+          onPressed: () => debugPrint("Tap: Login"),
         ),
         SizedBox(height: 16.h),
       ],

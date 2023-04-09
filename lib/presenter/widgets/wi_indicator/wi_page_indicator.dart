@@ -23,9 +23,7 @@ class _WiPageIndicatorState extends State<WiPageIndicator> {
   @override
   void initState() {
     super.initState();
-    widget.controller.addListener(() {
-      setState(() {});
-    });
+    widget.controller.addListener(() => setState(() {}));
   }
 
   @override
