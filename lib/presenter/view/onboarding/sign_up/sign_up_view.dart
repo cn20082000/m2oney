@@ -1,7 +1,6 @@
 import 'package:cn_structure/cn_structure.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
@@ -33,16 +32,16 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-            vertical: 56.h,
+          padding: const EdgeInsets.symmetric(
+            vertical: 56,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _buildInputs(),
-              SizedBox(height: 8.h),
+              const SizedBox(height: 8),
               _buildAgreeToPaper(),
-              SizedBox(height: 24.h),
+              const SizedBox(height: 24),
               _buildButtons(),
             ],
           ),
@@ -53,20 +52,21 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
 
   Widget _buildInputs() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.w,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
       ),
       child: Column(
         children: [
           WiTextField(
             autoFocus: true,
+            focusNode: notifier.nameNode,
             hintText: "Name",
             keyboardType: TextInputType.name,
             textInputAction: TextInputAction.next,
             textCapitalization: TextCapitalization.words,
             onSubmitted: (_) => notifier.emailNode.requestFocus(),
           ),
-          SizedBox(height: 24.h),
+          const SizedBox(height: 24),
           WiTextField(
             focusNode: notifier.emailNode,
             hintText: "Email",
@@ -74,7 +74,7 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
             textInputAction: TextInputAction.next,
             onSubmitted: (_) => notifier.passwordNode.requestFocus(),
           ),
-          SizedBox(height: 24.h),
+          const SizedBox(height: 24),
           WiTextField(
             focusNode: notifier.passwordNode,
             obscureText: true,
@@ -90,20 +90,20 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
   Widget _buildAgreeToPaper() {
     return Row(
       children: [
-        SizedBox(width: 8.w),
+        const SizedBox(width: 8),
         consumer(
           builder: (_) => Checkbox(
             activeColor: AppColors.violet100,
-            side: BorderSide(
+            side: const BorderSide(
               color: AppColors.violet100,
-              width: 2.r,
+              width: 2,
             ),
             shape: RoundedRectangleBorder(
-              side: BorderSide(
+              side: const BorderSide(
                 color: AppColors.violet100,
-                width: 2.r,
+                width: 2,
               ),
-              borderRadius: BorderRadius.circular(4.r),
+              borderRadius: BorderRadius.circular(4),
             ),
             value: notifier.agreeToPaper.value,
             onChanged: (value) {
@@ -113,7 +113,7 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
             },
           ),
         ),
-        SizedBox(width: 2.w),
+        const SizedBox(width: 2),
         Expanded(
           child: Text.rich(
             TextSpan(
@@ -133,46 +133,46 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
             ),
           ),
         ),
-        SizedBox(width: 16.w),
+        const SizedBox(width: 16),
       ],
     );
   }
 
   Widget _buildButtons() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.w,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
       ),
       child: Column(
         children: [
           Hero(
-            tag: "SignUpButton",
+            tag: "MainButton",
             child: WiButton.primary(
               content: "Sign Up",
               onPressed: () =>
                   Navigator.pushNamed(context, Routers.verification),
             ),
           ),
-          SizedBox(height: 12.h),
+          const SizedBox(height: 12),
           Text(
             "Or with",
             style: AppTypos.base.copyWith(
               fontWeight: FontWeight.bold,
-              fontSize: 14.sp,
+              fontSize: 14,
               color: AppColors.light20,
             ),
           ),
-          SizedBox(height: 12.h),
+          const SizedBox(height: 12),
           WiButton.ghost(
             prefix: SvgPicture.asset(
               Svgs.icGoogle,
-              height: 32.r,
-              width: 32.r,
+              height: 32,
+              width: 32,
             ),
             content: "Sign Up with Google",
             onPressed: () => debugPrint("Tap: Sign Up with Google"),
           ),
-          SizedBox(height: 20.h),
+          const SizedBox(height: 20),
           Text.rich(
             TextSpan(
               children: [
@@ -187,7 +187,7 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
                     decoration: TextDecoration.underline,
                   ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => debugPrint("Tap: Login"),
+                    ..onTap = () => Navigator.pushNamed(context, Routers.login),
                 ),
               ],
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
 import '../../common/app_colors.dart';
@@ -37,7 +36,7 @@ class WiButton extends StatelessWidget {
         margin: margin,
         backgroundColor: AppColors.violet100,
         contentColor: AppColors.light80,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16),
         prefix: prefix,
         content: content,
         onPressed: onPressed,
@@ -53,7 +52,7 @@ class WiButton extends StatelessWidget {
         margin: margin,
         backgroundColor: AppColors.violet20,
         contentColor: AppColors.violet100,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16),
         prefix: prefix,
         content: content,
         onPressed: onPressed,
@@ -69,10 +68,10 @@ class WiButton extends StatelessWidget {
         margin: margin,
         backgroundColor: Colors.transparent,
         contentColor: AppColors.dark50,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16),
         boxBorder: Border.all(
           color: AppColors.light60,
-          width: 1.r,
+          width: 1,
         ),
         prefix: prefix,
         content: content,
@@ -95,15 +94,15 @@ class WiButton extends StatelessWidget {
           borderRadius: borderRadius,
           child: Padding(
             padding: EdgeInsets.symmetric(
-              vertical: prefix != null ? 12.h : 16.h,
-              horizontal: 48.w,
+              vertical: prefix != null ? 12 : 16,
+              horizontal: 48,
             ),
             child: Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   if (prefix != null) prefix!,
-                  if (prefix != null) SizedBox(width: 10.w),
+                  if (prefix != null) SizedBox(width: 10),
                   Text(
                     content,
                     style: AppTypos.title3.withColor(

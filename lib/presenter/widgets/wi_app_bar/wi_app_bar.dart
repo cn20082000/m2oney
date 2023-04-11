@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../resources/resources.dart';
@@ -41,12 +40,12 @@ class WiAppBar extends StatelessWidget implements PreferredSizeWidget {
       systemOverlayStyle: statusBarStyle.systemUiOverlayStyle,
       leading: InkWell(
         onTap: () => Navigator.pop(context),
-        borderRadius: BorderRadius.circular(1000.r),
+        borderRadius: BorderRadius.circular(1000),
         child: Center(
           child: SvgPicture.asset(
             Svgs.icArrowLeft,
-            width: 32.r,
-            height: 32.r,
+            width: 32,
+            height: 32,
             theme: statusBarStyle.titleColor != null
                 ? SvgTheme(
                     currentColor: statusBarStyle.titleColor!,

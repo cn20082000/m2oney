@@ -45,10 +45,10 @@ packages:
     dependency: "direct main"
     description:
       name: cn_datetime_utils
-      sha256: f2f0fa0aca6d07056b36269883246671495c2c7e00d4cf3e3d53d75926b1ec61
+      sha256: e8fe8feb972ca627ef358a273d7f0ad5d4274defdb780a9ef29e8cb1cbebe1b9
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.1.0"
   cn_structure:
     dependency: "direct main"
     description:
@@ -117,14 +117,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  flutter_screenutil:
-    dependency: "direct main"
-    description:
-      name: flutter_screenutil
-      sha256: "0a122936b450324cbdfd51be0819cc6fcebb093eb65585e9cd92263f7a1a8a39"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.7.0"
   flutter_svg:
     dependency: "direct main"
     description:

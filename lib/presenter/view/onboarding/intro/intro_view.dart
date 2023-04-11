@@ -1,6 +1,5 @@
 import 'package:cn_structure/cn_structure.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
 import '../../../../resources/resources.dart';
@@ -28,6 +27,7 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
     return WiStatusBar.light(
       child: Scaffold(
         body: SafeArea(
+          top: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -56,9 +56,9 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
 
   Widget _buildIndicator() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: 28.h,
-        horizontal: 32.w,
+      padding: const EdgeInsets.symmetric(
+        vertical: 28,
+        horizontal: 32,
       ),
       child: Center(
         child: WiPageIndicator(
@@ -73,20 +73,20 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
     return Column(
       children: [
         Hero(
-          tag: "SignUpButton",
+          tag: "MainButton",
           child: WiButton.primary(
-            margin: EdgeInsets.symmetric(horizontal: 16.w),
+            margin: const EdgeInsets.symmetric(horizontal: 16),
             content: "Sign Up",
             onPressed: () => Navigator.pushNamed(context, Routers.signUp),
           ),
         ),
-        SizedBox(height: 16.h),
+        const SizedBox(height: 16),
         WiButton.secondary(
-          margin: EdgeInsets.symmetric(horizontal: 16.w),
+          margin: const EdgeInsets.symmetric(horizontal: 16),
           content: "Login",
-          onPressed: () => debugPrint("Tap: Login"),
+          onPressed: () => Navigator.pushNamed(context, Routers.login),
         ),
-        SizedBox(height: 16.h),
+        const SizedBox(height: 16),
       ],
     );
   }
@@ -115,40 +115,42 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
         break;
     }
 
-    return Column(
-      children: [
-        Expanded(
-          child: Padding(
+    return SingleChildScrollView(
+      reverse: true,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
             padding: EdgeInsets.only(
-              top: 32.h,
-              left: 32.w,
-              right: 32.w,
+              top: 32 + MediaQuery.of(context).padding.top,
+              left: 32,
+              right: 32,
             ),
             child: Image.asset(
               image,
               fit: BoxFit.contain,
             ),
           ),
-        ),
-        SizedBox(height: 60.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 48.w),
-          child: Text(
-            title,
-            style: AppTypos.title1.withColor(AppColors.dark50),
-            textAlign: TextAlign.center,
+          const SizedBox(height: 60),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 48),
+            child: Text(
+              title,
+              style: AppTypos.title1.withColor(AppColors.dark50),
+              textAlign: TextAlign.center,
+            ),
           ),
-        ),
-        SizedBox(height: 16.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 48.w),
-          child: Text(
-            content,
-            style: AppTypos.regular1.withColor(AppColors.light20),
-            textAlign: TextAlign.center,
-          ),
-        )
-      ],
+          const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 48),
+            child: Text(
+              content,
+              style: AppTypos.regular1.withColor(AppColors.light20),
+              textAlign: TextAlign.center,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

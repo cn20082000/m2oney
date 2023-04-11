@@ -1,7 +1,6 @@
 import 'package:cn_structure/cn_structure.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
 import '../../../common/app_colors.dart';
@@ -36,9 +35,9 @@ class _VerificationViewState
             Expanded(
               child: SingleChildScrollView(
                 reverse: true,
-                padding: EdgeInsets.symmetric(
-                  vertical: 16.h,
-                  horizontal: 16.w,
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 16,
                 ),
                 child: _buildMainContent(),
               ),
@@ -57,16 +56,16 @@ class _VerificationViewState
         Text(
           "Enter your Verification Code",
           style: AppTypos.base.copyWith(
-            fontSize: 36.sp,
+            fontSize: 36,
             fontWeight: FontWeight.w500,
             color: AppColors.dark100,
           ),
         ),
-        SizedBox(height: 48.h),
+        const SizedBox(height: 48),
         const WiVerifyTextField(
           autoFocus: true,
         ),
-        SizedBox(height: 48.h),
+        const SizedBox(height: 48),
         consumer(builder: (context) {
           final minute =
               (notifier.timeRemaining.value.inMicroseconds / 1000 / 1000 / 60)
@@ -81,7 +80,7 @@ class _VerificationViewState
             style: AppTypos.title3.withColor(AppColors.violet100),
           );
         }),
-        SizedBox(height: 16.h),
+        const SizedBox(height: 16),
         Text.rich(
           TextSpan(
             children: [
@@ -100,7 +99,7 @@ class _VerificationViewState
             ],
           ),
         ),
-        SizedBox(height: 16.h),
+        const SizedBox(height: 16),
         Text.rich(
           TextSpan(
             text: "I didn't received the code? Send again",
@@ -116,13 +115,16 @@ class _VerificationViewState
   }
 
   Widget _buildButton() {
-    return WiButton.primary(
-      margin: EdgeInsets.symmetric(
-        vertical: 16.h,
-        horizontal: 16.w,
+    return Hero(
+      tag: "MainButton",
+      child: WiButton.primary(
+        margin: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 16,
+        ),
+        content: "Verify",
+        onPressed: () => debugPrint("Tap: Verify"),
       ),
-      content: "Verify",
-      onPressed: () => debugPrint("Tap: Verify"),
     );
   }
 }

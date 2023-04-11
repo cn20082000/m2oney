@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../resources/resources.dart';
@@ -57,8 +56,8 @@ class _WiTextFieldState extends State<WiTextField> {
             onLongPressUp: () => setState(() => obscureText = true),
             child: SvgPicture.asset(
               Svgs.icShowPassword,
-              width: 32.r,
-              height: 32.r,
+              width: 32,
+              height: 32,
               theme: const SvgTheme(
                 currentColor: AppColors.light20,
               ),
@@ -70,7 +69,7 @@ class _WiTextFieldState extends State<WiTextField> {
 
     return TextField(
       style: AppTypos.base.copyWith(
-        fontSize: 16.sp,
+        fontSize: 16,
         fontWeight: FontWeight.normal,
       ),
       keyboardType: widget.keyboardType,
@@ -85,42 +84,42 @@ class _WiTextFieldState extends State<WiTextField> {
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: AppTypos.base.copyWith(
-          fontSize: 16.sp,
+          fontSize: 16,
           fontWeight: FontWeight.normal,
           color: AppColors.light20,
         ),
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 16.h,
-          horizontal: 16.w,
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 16,
         ),
         suffixIcon: suffix,
         border: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.light60,
-            width: 1.r,
+            width: 1,
           ),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.light60,
-            width: 1.r,
+            width: 1,
           ),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.violet100,
-            width: 1.r,
+            width: 1,
           ),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16),
         ),
         errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.red100,
-            width: 1.r,
+            width: 1,
           ),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16),
         ),
       ),
     );

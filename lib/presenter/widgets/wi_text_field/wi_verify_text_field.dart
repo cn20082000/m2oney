@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m2oney/utils/extension/ext.dart';
 
 import '../../common/app_colors.dart';
@@ -50,7 +49,7 @@ class _WiVerifyTextFieldState extends State<WiVerifyTextField> {
     final children = <Widget>[];
     children.add(_buildCharacter(0, painter.width));
     for (int i = 1; i < 6; ++i) {
-      children.add(SizedBox(width: 16.w));
+      children.add(const SizedBox(width: 16));
       children.add(_buildCharacter(i, painter.width));
     }
 
@@ -109,14 +108,14 @@ class _WiVerifyTextFieldState extends State<WiVerifyTextField> {
       );
     }
     return Container(
-      height: 16.r,
-      width: 16.r,
+      height: 16,
+      width: 16,
       margin: EdgeInsets.symmetric(
-        horizontal: (textWidth - 16.r).limit(min: 0).toDouble() / 2,
+        horizontal: (textWidth - 16).limit(min: 0).toDouble() / 2,
       ),
       decoration: BoxDecoration(
         color: AppColors.light40,
-        borderRadius: BorderRadius.circular(1000.r),
+        borderRadius: BorderRadius.circular(1000),
       ),
     );
   }
