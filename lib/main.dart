@@ -6,7 +6,7 @@ import 'package:page_transition/page_transition.dart';
 import 'presenter/router/routers.dart';
 
 void main() async {
-  await preRun();
+  // await preRun();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: Routers.intro,

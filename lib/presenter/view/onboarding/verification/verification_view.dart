@@ -30,7 +30,6 @@ class _VerificationViewState
       ),
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: SingleChildScrollView(
@@ -39,10 +38,16 @@ class _VerificationViewState
                   vertical: 16,
                   horizontal: 16,
                 ),
-                child: _buildMainContent(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    _buildMainContent(),
+                    const SizedBox(height: 16),
+                    _buildButton(),
+                  ],
+                ),
               ),
             ),
-            _buildButton(),
           ],
         ),
       ),
@@ -118,10 +123,6 @@ class _VerificationViewState
     return Hero(
       tag: "MainButton",
       child: WiButton.primary(
-        margin: const EdgeInsets.symmetric(
-          vertical: 16,
-          horizontal: 16,
-        ),
         content: "Verify",
         onPressed: () => debugPrint("Tap: Verify"),
       ),
