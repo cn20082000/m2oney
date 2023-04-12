@@ -78,24 +78,25 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
   }
 
   Widget _buildButtons(BuildContext context) {
-    return Column(
-      children: [
-        Hero(
-          tag: "MainButton",
-          child: WiButton.primary(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            content: "Sign Up",
-            onPressed: () => Navigator.pushNamed(context, Routers.signUp),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          Hero(
+            tag: "MainButton",
+            child: WiButton.primary(
+              content: "Sign Up",
+              onPressed: () => Navigator.pushNamed(context, Routers.signUp),
+            ),
           ),
-        ),
-        const SizedBox(height: 16),
-        WiButton.secondary(
-          margin: const EdgeInsets.symmetric(horizontal: 16),
-          content: "Login",
-          onPressed: () => Navigator.pushNamed(context, Routers.login),
-        ),
-        const SizedBox(height: 16),
-      ],
+          const SizedBox(height: 16),
+          WiButton.secondary(
+            content: "Login",
+            onPressed: () => Navigator.pushNamed(context, Routers.login),
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
     );
   }
 
@@ -124,7 +125,8 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
     }
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.only(
+      padding: EdgeInsets.only(
+        top: 32 + MediaQuery.of(context).padding.top,
         bottom: 76,
       ),
       reverse: true,
@@ -132,10 +134,8 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: EdgeInsets.only(
-              top: 32 + MediaQuery.of(context).padding.top,
-              left: 32,
-              right: 32,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 32
             ),
             child: Image.asset(
               image,

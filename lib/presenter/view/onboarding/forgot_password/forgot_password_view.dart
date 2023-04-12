@@ -4,6 +4,7 @@ import 'package:m2oney/utils/extension/ext.dart';
 
 import '../../../common/app_colors.dart';
 import '../../../common/app_typos.dart';
+import '../../../router/routers.dart';
 import '../../../widgets/wi_app_bar/wi_app_bar.dart';
 import '../../../widgets/wi_button/wi_button.dart';
 import '../../../widgets/wi_text_field/wi_text_field.dart';
@@ -47,14 +48,16 @@ class _ForgotPasswordViewState
                 hintText: "Email",
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
-                onSubmitted: (_) => debugPrint("Tap: Continue"),
+                onSubmitted: (_) =>
+                    Navigator.pushNamed(context, Routers.forgotPasswordSent),
               ),
               const SizedBox(height: 32),
               Hero(
                 tag: "MainButton",
                 child: WiButton.primary(
                   content: "Continue",
-                  onPressed: () => debugPrint("Tap: Continue"),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, Routers.forgotPasswordSent),
                 ),
               ),
             ],
