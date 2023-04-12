@@ -68,6 +68,7 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
             hintText: "Password",
             keyboardType: TextInputType.visiblePassword,
             textInputAction: TextInputAction.done,
+            onSubmitted: (_) => debugPrint("Tap: Login"),
           ),
         ],
       ),
@@ -96,7 +97,8 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
                 AppColors.violet100,
               ),
               recognizer: TapGestureRecognizer()
-                ..onTap = () => debugPrint("Tap: Forgot Password"),
+                ..onTap =
+                    () => Navigator.pushNamed(context, Routers.forgotPassword),
             ),
           ),
           const SizedBox(height: 40),
@@ -114,8 +116,8 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
                     decoration: TextDecoration.underline,
                   ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap =
-                        () => Navigator.pushNamed(context, Routers.signUp),
+                    ..onTap = () =>
+                        Navigator.pushReplacementNamed(context, Routers.signUp),
                 ),
               ],
             ),

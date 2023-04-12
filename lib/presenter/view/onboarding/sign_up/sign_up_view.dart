@@ -187,7 +187,8 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
                     decoration: TextDecoration.underline,
                   ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => Navigator.pushNamed(context, Routers.login),
+                    ..onTap = () =>
+                        Navigator.pushReplacementNamed(context, Routers.login),
                 ),
               ],
             ),

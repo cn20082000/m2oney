@@ -32,9 +32,17 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                child: _buildPageView(),
+                child: Stack(
+                  alignment: AlignmentDirectional.bottomCenter,
+                  children: [
+                    _buildPageView(),
+                    Positioned(
+                      bottom: 0,
+                      child: _buildIndicator(),
+                    ),
+                  ],
+                ),
               ),
-              _buildIndicator(),
               _buildButtons(context),
             ],
           ),
@@ -116,6 +124,9 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
     }
 
     return SingleChildScrollView(
+      padding: const EdgeInsets.only(
+        bottom: 76,
+      ),
       reverse: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
