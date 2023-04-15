@@ -49,7 +49,7 @@ class _ForgotPasswordViewState
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 onSubmitted: (_) =>
-                    Navigator.pushNamed(context, Routers.forgotPasswordSent),
+                    Navigator.of(context).pushNamed(Routers.forgotPasswordSent),
               ),
               const SizedBox(height: 32),
               Hero(
@@ -57,7 +57,7 @@ class _ForgotPasswordViewState
                 child: WiButton.primary(
                   content: "Continue",
                   onPressed: () =>
-                      Navigator.pushNamed(context, Routers.forgotPasswordSent),
+                      Navigator.of(context).pushNamed(Routers.forgotPasswordSent),
                 ),
               ),
             ],

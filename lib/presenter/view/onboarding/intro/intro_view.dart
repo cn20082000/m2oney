@@ -86,13 +86,13 @@ class _IntroViewState extends CnState<IntroView, IntroNotifier> {
             tag: "MainButton",
             child: WiButton.primary(
               content: "Sign Up",
-              onPressed: () => Navigator.pushNamed(context, Routers.signUp),
+              onPressed: () => Navigator.of(context).pushNamed(Routers.signUp),
             ),
           ),
           const SizedBox(height: 16),
           WiButton.secondary(
             content: "Login",
-            onPressed: () => Navigator.pushNamed(context, Routers.login),
+            onPressed: () => Navigator.of(context).pushNamed(Routers.login),
           ),
           const SizedBox(height: 16),
         ],

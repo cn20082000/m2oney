@@ -5,6 +5,7 @@ import 'package:m2oney/utils/extension/ext.dart';
 import '../../../../resources/resources.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/app_typos.dart';
+import '../../../router/routers.dart';
 import '../../../widgets/wi_button/wi_button.dart';
 import 'forgot_password_sent_notifier.dart';
 
@@ -71,7 +72,7 @@ class _ForgotPasswordSentViewState
                 tag: "MainButton",
                 child: WiButton.primary(
                   content: "Back to Login",
-                  onPressed: () => debugPrint("Tap: Back to Login"),
+                  onPressed: () => Navigator.of(context).popToNamed(Routers.login),
                 ),
               ),
             ),

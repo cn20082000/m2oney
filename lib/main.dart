@@ -17,6 +17,7 @@ void main() async {
       curve: Curves.easeInOut,
       duration: 250.millisecond,
       reverseDuration: 300.millisecond,
+      settings: settings,
     ),
   ));
 }

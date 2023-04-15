@@ -98,7 +98,7 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap =
-                    () => Navigator.pushNamed(context, Routers.forgotPassword),
+                    () => Navigator.of(context).pushNamed(Routers.forgotPassword),
             ),
           ),
           const SizedBox(height: 40),
@@ -117,7 +117,7 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () =>
-                        Navigator.pushReplacementNamed(context, Routers.signUp),
+                        Navigator.of(context).pushReplacementNamed(Routers.signUp),
                 ),
               ],
             ),

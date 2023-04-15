@@ -150,7 +150,7 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
             child: WiButton.primary(
               content: "Sign Up",
               onPressed: () =>
-                  Navigator.pushNamed(context, Routers.verification),
+                  Navigator.of(context).pushNamed(Routers.verification),
             ),
           ),
           const SizedBox(height: 12),
@@ -188,7 +188,7 @@ class _SignUpViewState extends CnState<SignUpView, SignUpNotifier> {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () =>
-                        Navigator.pushReplacementNamed(context, Routers.login),
+                        Navigator.of(context).pushReplacementNamed(Routers.login),
                 ),
               ],
             ),
