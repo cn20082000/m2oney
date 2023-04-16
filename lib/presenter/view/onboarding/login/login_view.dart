@@ -68,7 +68,8 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
             hintText: "Password",
             keyboardType: TextInputType.visiblePassword,
             textInputAction: TextInputAction.done,
-            onSubmitted: (_) => debugPrint("Tap: Login"),
+            onSubmitted: (_) =>
+                Navigator.of(context).pushNamedAndRemoveAll(Routers.setupPin),
           ),
         ],
       ),
@@ -86,7 +87,8 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
             tag: "MainButton",
             child: WiButton.primary(
               content: "Login",
-              onPressed: () => debugPrint("Tap: Login"),
+              onPressed: () =>
+                  Navigator.of(context).pushNamedAndRemoveAll(Routers.setupPin),
             ),
           ),
           const SizedBox(height: 32),
@@ -97,8 +99,8 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
                 AppColors.violet100,
               ),
               recognizer: TapGestureRecognizer()
-                ..onTap =
-                    () => Navigator.of(context).pushNamed(Routers.forgotPassword),
+                ..onTap = () =>
+                    Navigator.of(context).pushNamed(Routers.forgotPassword),
             ),
           ),
           const SizedBox(height: 40),
@@ -116,8 +118,8 @@ class _LoginViewState extends CnState<LoginView, LoginNotifier> {
                     decoration: TextDecoration.underline,
                   ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () =>
-                        Navigator.of(context).pushReplacementNamed(Routers.signUp),
+                    ..onTap = () => Navigator.of(context)
+                        .pushReplacementNamed(Routers.signUp),
                 ),
               ],
             ),
